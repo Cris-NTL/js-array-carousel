@@ -22,6 +22,21 @@ const downBtn = document.querySelector(".down-btn");
 // hide the up button
 upBtn.style.display = "none";
 
+// click function for up-button
+upBtn.addEventListener('click', function () {
+    downBtn.style.display = "block";
+    if (activeItem > 0) {
+        itemsArray[activeItem].classList.remove('active');
+        activeItem--;
+        itemsArray[activeItem].classList.add('active');
+    }
+    // hide the up button if it reaches the first item
+    if (activeItem === 0) {
+        upBtn.style.display = "none";
+    }
+})
+
+// click function for down-button
 downBtn.addEventListener('click', function () {
     upBtn.style.display = "block";
     if (activeItem < (imagesArray.length - 1)) {
@@ -35,16 +50,4 @@ downBtn.addEventListener('click', function () {
     }
 });
 
-upBtn.addEventListener('click', function () {
-    downBtn.style.display = "block";
-    if (activeItem > 0) {
-        itemsArray[activeItem].classList.remove('active');
-        activeItem--;
-        itemsArray[activeItem].classList.add('active');
-    }
-    // hide the up button if it reaches the first item
-    if (activeItem === 0) {
-        upBtn.style.display = "none";
-    }
-})
 
